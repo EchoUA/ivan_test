@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text analyzer</title>
+</head>
+<body>
+    <form action="start" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input value="submit" type="submit">
+    </form>
+
+    {% if output %}
+        {% for line in output %}
+            {% for i in line %}
+                {{ i }}
+            {% endfor %}
+    <br>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
